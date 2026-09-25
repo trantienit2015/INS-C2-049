@@ -1,0 +1,19 @@
+# Runtime parameters loaded by AgentRegistry and passed as Graph(config=...).
+# Static manifest fields (name/version/class/requires) live in agent.yaml.
+
+max_retry: 3
+timeout_s: 60
+
+# Rulesets read by the graph as config["phrase_kb"] / config["suitability_matrix"].
+# The entries below are ILLUSTRATIVE SAMPLE DATA so the agent runs end to end out of the
+# box; they are not a complete or authoritative ruleset. Replace them with your own
+# reviewed forbidden-phrase list ({category: [phrase]}) and suitability matrix
+# ({product: {trigger_phrases, required_phrases, citation}}).
+phrase_kb:
+  断定的判断: [必ず儲か, 元本保証, 絶対に損しません]
+  不適切勧誘: [今だけ特別, 今日中に決めて]
+suitability_matrix:
+  変額保険:
+    trigger_phrases: [変額保険]
+    required_phrases: [リスク]
+    citation: Illustrative sample rule (replace with your own citation)
